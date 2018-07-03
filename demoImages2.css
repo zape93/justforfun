@@ -6,10 +6,13 @@ body{
     padding: 20px;
 }
 #box{
+    margin: 50px auto;
     width: 600px;
     height: 400px;
     position: relative;
     overflow: hidden;
+    border: 3px solid #666;
+    border-radius: 10%;
 }
 #list{
     width: 4200px;
