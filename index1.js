@@ -99,7 +99,7 @@ window.onload = function () {
             }
         }
         var play = function () {
-            move = setInterval(next.onclick,2000);
+            move = setInterval(next.onclick,4000);
             move;
         }
         var stop = function () {
