@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: darkgrey;
+}
+header{
+    position: relative;
+    margin: 0px;
+    text-align: center;
+    font-family: KaiTi;
+    font-size: 40px;
+    background: grey;
+}
+#list{
+    position: relative;
+    margin: 0px auto;
+    width: 1200px;
+    height: auto;
+}
+#list>div{
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 240px;
+    margin: 10px;
+    border: 3px solid black;
+    border-radius: 10%;
+    background: black;
+}
+#list>div>img{
+    width: 100%;
+    height: 100%;
+}
+#list>div,.box{
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    overflow: hidden;
+}
+.box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 240px;
+    text-align: center;
+    background: grey;
+    opacity: 0.7;
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform-origin: right bottom;
+    -moz-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    -o-transform-origin: right bottom;
+    transform-origin: right bottom;
+}
+.symbol{
+    text-align: center;
+    display: block;
+    width: 150px;
+    height: 40px;
+    font-size: 40px;
+    font-family: "Microsoft Yi Baiti";
+    font-weight: 900;
+    line-height: 40px;
+    margin: 0px auto;
+    color: whitesmoke;
+}
+#list>div:hover{
+    cursor: pointer;
+    border: 3px solid darkgrey;
+}
+#list>div:hover .box{
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+#list>div:hover .symbol{
+    color: red;
+}
+.box p{
+    color: #fff;
+}
+span{
+    margin: 100px auto 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    background: orangered;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 50%;
+    z-index: 999;
+}
+.name{
+    margin-top: 30px;
+    font-size: 20px;
+}
+.desc{
+    margin-top: 10px;
+    font-size: 10px;
+}
+
