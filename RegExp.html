@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background: #aaaaaa;
+        }
+        h1{
+            text-align: center;
+        }
+        span{
+            float: left;
+            background: lightgray;
+            height: 50%;
+        }
+        #pattern-box{
+            margin: 0 25%;
+            width: 50%;
+            height: 200px;
+            text-align: center;;
+        }
+        textarea{
+            width: 100%;
+            height: 100%;
+        }
+        #text-box,#replace-box{
+            position: relative;
+            margin: 0 25%;
+            width: 50%;
+            height: 50px;
+            text-align: center;
+        }
+        #text-box>span,#textParrent,#buttons,#replace-box>span,#replaceParrent,#replace-buttons{
+            float: left;
+            height: 50%;
+            margin: 12px 0;
+            border: 1px solid grey;
+        }
+        #buttons,#replace-buttons{
+            background: rgb(0,0,255);
+            width: 15%;
+            margin-right: 35%;
+        }
+        #buttons:hover,#replace-buttons:hover{
+            cursor: pointer;
+        }
+        #result-box,#replace-result-box{
+            margin: 0 25%;
+            width: 50%;
+            height: 200px;
+        }
+        .boxBorder{
+            border: 3px solid dimgrey;
+        }
+    </style>
+</head>
+<body>
+<h1>在线正则表达式测试</h1>
+<div id="pattern-box" >
+<textarea id="pattern" class="boxBorder" placeholder="在这里输入匹配文本"></textarea>
+</div>
+<div id="text-box" >
+    <span>正则表达式</span>
+    <input type="text" id="textParrent" placeholder="在此输入正则表达式" />
+    <input type="submit" id="buttons" value="测试匹配">
+</div>
+<div id="result-box">
+    <textarea id="result" class="boxBorder" readonly="readonly" placeholder="这里显示匹配结果"></textarea>
+</div>
+<div id="replace-box">
+    <span>替换文本</span>
+    <input type="text" id="replaceParrent" placeholder="在此输入替换文本" />
+    <input type="submit" id="replace-buttons" value="替换">
+</div>
+<div id="replace-result-box" >
+    <textarea id="replace-result" class="boxBorder" readonly="readonly" placeholder="这里显示替换结果"></textarea>
+</div>
+<script>
+    window.onload = function () {
+        if (!document.getElementById) return false;
+        var pattern = document.getElementById("pattern");
+        var text = document.getElementById("textParrent");
+        var result = document.getElementById("result");
+        var replace = document.getElementById("replaceParrent");
+        var replaceButtons = document.getElementById("replace-buttons");
+        var replaceResult = document.getElementById("replace-result");
+        var buttons = document.getElementById("buttons");
+        var str = "";
+        var placeholder = "";
+        var replaceholder = "";
+        var num;
+        pattern.addEventListener("input", function () {
+            str = this.value;
+            //console.log(str);
+        }, false);
+        text.addEventListener("input", function () {
+            num = this.value;
+            reg = new RegExp("(" + num + ")", "g");
+            // reg = new RegExp("("+this.value+")","g");
+            //当str为null时拿到正则表达式内的文本
+            //console.log(reg);
+            //placeholder = str.match(reg);//是一个数组 匹配结果数组
+            //console.log(reg);
+        }, false);
+        buttons.onclick = function () {
+            if (!str) {
+                alert("匹配文本不能为空");
+                //console.log(reg);//null str为null reg不为空
+            } else {
+                placeholder = str.match(reg);
+                //console.log(placeholder.length);
+                result.value = "共找到" + placeholder.length + "处匹配:" + placeholder[0]
+                //console.log(result.value);
+            }
+        };
+        replace.addEventListener("input", function () {
+            num2 = this.value;
+            // 当匹配文本没有时 不存在placeholder
+
+        }, false);
+        replaceButtons.onclick = function () {
+            if (!str) {
+                alert("匹配文本不能为空");
+            } else {
+                if (!num) {
+                    alert("请填写正则表达式");
+                } else {
+                    //   console.log(num2);
+                    placeholder = str.match(reg);
+                    var holder = placeholder[0];
+                    reg1 = new RegExp(holder, "g");
+                    replaceholder = str.replace(reg1, num2);
+                    replaceResult.value = "替换结果:" + replaceholder;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
