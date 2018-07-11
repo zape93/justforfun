@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <select>
+        <option>小说类型</option>
+        <!-- 土豆，西红柿，跳舞，唐三 -->
+    </select>
+    <select>
+        <option>小说作者</option>
+    </select>
+    <select>
+        <option>小说名字</option>
+    </select>
+    <select>
+        <option>测试</option>
+    </select>
+</form>
+<script>
+    var data = [
+        {text:"玄幻小说",value:"1",list:[
+                {
+                    text: "天蚕土豆", value: "1.1", list: [
+                        {text: "斗破苍穹", value: "1.1.1"},
+                        {text: "武动乾坤", value: "1.1.2"},
+                        {text: "魔兽剑圣异界纵横", value: "1.1.3"}]
+                },
+                {
+                    text: "我吃西红柿", value: "1.2", list: [
+                        {text: "盘龙", value: "1.2.1"},
+                        {text: "星辰变", value: "1.2.2"}]
+                },
+                {
+                    text: "跳舞", value: "1.3", list: [
+                        {text: "恶魔法则", value: "1.3.1"},
+                        {text: "天王", value: "1.3.2"},
+                        {text: "邪气凛然", value: "1.3.3"},
+                        {text: "嬉皮笑脸", value: "1.3.4"}]
+                },
+                {
+                    text: "唐家三少", value: "1.4", list: [
+                        {text: "斗罗大陆", value: "1.4.1"},
+                        {text: "绝世唐门", value: "1.4.2"},
+                        {text: "神印王座", value: "1.4.3"},
+                        {text: "酒神", value: "1.4.4"},
+                        {text: "生肖守护神", value: "1.4.5"},]
+                },]},
+        {text:"言情小说",value:"2",list:[
+                {
+                    text:"叶非夜",value:"2.1",list:[
+                        {text:"傲娇男神住我家：99次说爱你",value:"2.1.1"},
+                        {text:"国民老公带回家：偷吻55次",value:"2.1.2"},
+                        {text:"高冷男神住隔壁：错吻55次",value:"2.1.2"},]
+                },
+                {
+                    text:"顾漫",value:"2.2",list:[
+                        {text:"何以箫声默",value:"2.2.1"},
+                        {text:"微微一笑很倾城",value:"2.2.2"},
+                        {text:"骄阳似我",value:"2.2.3"},
+                        {text:"有女好采花",value:"2.2.4"},]
+                },
+                {
+                    text:"丁墨",value:"2.3",list:[
+                        {text:"如果蜗牛有爱情",value:"2.3.1"},
+                        {text:"他来了请闭眼",value:"2.3.2"},
+                        {text:"独家占有",value:"2.3.3"},]
+                },
+                {
+                    text:"东奔西顾",value:"2.4",list:[
+                        {text:"妖孽也成双",value:"2.4.1"},
+                        {text:"老公天然呆",value:"2.4.2"},]
+                }
+            ]},
+        {text:"武侠小说",value:"3",list:[
+                {
+                    text:"金庸",value:"3.1",list:[
+                        {text:"射雕英雄传",value:"3.1.1"},
+                        {text:"神雕侠侣",value:"3.1.2"},
+                        {text:"天龙八部",value:"3.1.3"},]
+
+                },
+                {
+                    text:"梁羽生",value:"3.2",list:[
+                        {text:"江湖三女侠",value:"3.2.1"},
+                        {text:"云海玉弓缘",value:"3.2.2"},
+                        {text:"七剑下天山",value:"3.2.3",list:[{text:"这是个测试",value:"3.2.3.1"}]},]
+                },
+                {
+                    text:"宫白羽",value:"3.3",list:[
+                        {text:"十二金钱镖",value:"3.3.1"},
+                        {text:"武林争雄记",value:"3.3.2"},
+                        {text:"偷拳",value:"3.3.3"},]
+                },
+                {
+                    text:"还珠楼主",value:"3.4",list:[
+                        {text:"蜀山剑侠传",value:"3.4.1"},]
+                }
+            ]},
+        {text:"都市小说",value:"4",list:[
+                {
+                    text:"安宁",value:"4.1",list:[
+                        {text:"吹不散眉弯",value:"4.1.1"},
+                        {text:"水北天南",value:"4.1.2"},]
+                },
+                {
+                    text:"顾漫",value:"4.2",list:[
+                        {text:"何以箫声默",value:"4.2.1"},
+                        {text:"微微一笑很倾城",value:"4.2.2"},
+                        {text:"骄阳似我",value:"4.2.3"},
+                        {text:"有女好采花",value:"4.2.4"},]
+                },
+                {
+                    text:"梅子黄时雨",value:"4.3",list:[
+                        {text:"人生若只初相见",value:"4.3.1"},]
+                },
+                {
+                    text:"顾西爵",value:"4.4",list:[
+                        {text:"最美初见你",value:"4.4.1"},
+                        {text:"满满都是我对你的爱",value:"4.4.2"},]
+                },]},];
+    var selects = document.forms[0].getElementsByTagName("select");
+    function fillData(select,data) {
+        data.forEach(function (item) {
+            //遍历data里面每一项 为每一项创建option类 并添加到当前的select标签下
+            var option = new Option(item.text,item.value);
+            select.add(option);
+            //console.log(option);
+        });
+    }
+    function removeOpt(select){
+        //console.log(select);
+        //有的select项里面没有option项或者只有1个option 所以要用到i>0限制条件 HTML里面的option[0]为不能删除项i不能等于0
+        //假设改变select【1】里面的option 传进来的参数依次是select[2]和select[3]
+        for (var i=select.length-1;i>0;i--){//假设修改的是select【1】里面的option 那么后面的select【2】，select[3]
+          // console.log(i);//select.length其实就是每一个传进来的select项里面的option项,select.length-1就是当前option的索引数
+            select.remove(i);//remove方法删除下来表单选项 如果下标比0小 或者大于或等于 则remove什么也不做,参数为下拉选项的索引
+        }
+    }
+    function cascade(selectList,data) {//cascade有两个参数 select数组 和 data数组
+        fillData(selectList[0],data);//填充selects[0]下的数据
+        //console.log(selectList[0]);
+        var len = selectList.length; //获取传进来select数组的长度
+        for (var i=0;i<len;i++) {//遍历传进的select数组长度
+            selectList[i].index = i;//select[0].index = 1/select[1].index = 2.../select[i].index = i
+            selectList[i].onchange = function (event) {//改变选择框触发函数
+                for (var j=this.index+1;j<len;j++){//依次判断当前和后面的(select[当前索引+1])select选择框
+                    //console.log(selectList[j]);
+                    removeOpt(selectList[j]);//删除当前选择框之后选择框的内容
+                }
+                var arr = this.value.split(".");//拿到当前选择的option的value属性值 并用split方法分隔成数组保存在arr数组中
+                var next = true;
+                if (data[selectList[0].value-1].list){//初始化list为第一级(select[0])下对应的list
+                    var list = data[selectList[0].value-1].list;
+                    //console.log(data[selectList[0].value-1].list); //这个判断语句判断select[0]是否存在 存在初始化select[0]里面的所有option项
+                   // console.log(arr.length);
+                } else{
+                    next = false;
+                }
+                //按照select[1]-select[arr.length] 依次判断 当前list【当前索引数】 是否有list属性 如果有就填充 没有就返回next = false
+                for (var k=1;k<arr.length;k++){//限制K的初始值 第一级在上面已经填充 让K从1开始（select【1】）开始
+                    if (list[arr[k]-1].list){//比如value为3.3.3.3 那么arr是由4个字符串构成的["3","3","3","3"],arr[1]="3"arr[2]="3",arr[3]="3"
+                        //console.log(arr[k]-1);//arr[k]-1 拿到当前list的索引数 判断当前list是否有list属性
+                        list = list[arr[k]-1].list;//如果有的list属性 那么就填充list属性到当前list
+                    }else{
+                        next = false;
+                    }
+                }
+                if(next&&selectList[this.index+1]){fillData(selectList[this.index+1],list)}
+                //要向后一级的select【i】里面填充，list 所以用到selectList[this.index+1]
+            }
+        }
+    }
+    cascade(selects,data);
+
+</script>
+</body>
+</html>
