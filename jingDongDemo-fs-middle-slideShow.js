@@ -35,7 +35,7 @@ function getStyle(obj,attr) {
         return obj.currentStyle[attr];
     }
 }
-window.onload = function () {
+   addLoadEvent(function (){
     var config = [
         {
             "opacity":1,
@@ -149,4 +149,4 @@ window.onload = function () {
     box.onmouseover = stop;
     box.onmouseout = play;
     play();
-}
+});

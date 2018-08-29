@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="images/font_743656_r76dunphu5/iconfont.css" />
     <link rel="stylesheet" href="images/font_745435_bm29axgaym/iconfont.css" />
     <link rel="stylesheet" href="images/font_746052_imi47yr2pdl/iconfont.css" />
+    <link rel="stylesheet" href="images/font_811847_d0j1izo7ec/iconfont.css" />
     <link rel="stylesheet" href="jingDongDemo.css" />
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script src="jingDongAddLoadEvent.js"></script>
     <script>
         function loginShow() {
             document.getElementById("loginShow").style.display = "block";
@@ -29,8 +32,32 @@
             document.getElementById("registShowP").style.display = "none";
         }
     </script>
+    <script>
+        var miaoshaBox = document.getElementsByClassName("miaosha_list");
+        var miaoshaList = document.getElementsByClassName("miaosha_items");
+        var miaoshaButtons = document.getElementsByClassName("miaosha_control");
+        var miaoshaPrev = document.getElementsByClassName("miaosha_list_prev");
+        var miaoshaNext = document.getElementsByClassName("miaosha_list_next");
+        function animate2(offset) {
+            var newPos = parseInt(miaoshaList.style.left) + offset;
+            miaoshaList.style.left = newPos + "px";
+            if(newPos>0){
+                miaoshaList.style.left = -1600 + "px";
+            }
+            if (newPos<-1600){
+                miaoshaList.style.left = -200 + "px";
+            }
+        }
+        miaoshaPrev.onclick = function () {
+            animate2(200);
+        };
+        miaoshaNext.onclick = function () {
+            animate2(-200);
+        };
+    </script>
 </head>
 <body>
+
 <div id="loginShow" style="display: none;position: fixed;top:0;bottom: 0;left:0;right: 0;background: rgba(0,0,0,.5);z-index: 2;" class="hide"></div>
 <div id="loginShowP" class="hide">
     <p id="login-p">用户：<input type="text" /></p>
@@ -54,7 +81,7 @@
     </p>
 </div>
 <div id="body">
-<div id="nav">
+    <div id="nav">
     <ul id="nav-left">
         <li id="showHidden0">
             <div>
@@ -553,7 +580,7 @@
     </ul>
 </div>
     <div id="logo"><a id="logo-a"><img src="images/imgList/jingdonglogo.jpg"></a></div>
-<div id="header">
+    <div id="header">
     <div id="search-box">
         <div id="search">
         <div >
@@ -590,7 +617,7 @@
         </ul>
     </div>
 </div>
-<div id="fs">
+    <div id="fs">
     <div id="fs-inner">
         <!-- 中部显示区导航栏 -->
         <div class="fs-inner-left">
@@ -4398,24 +4425,583 @@
             </div>
             <div id="fs-service">
                 <ul class="ser-list">
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-huafei"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-943caidan_jipiao"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jiudian"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-94"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-webicon07"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jiayouqia"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-dianyingpiao"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-huochepiao"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-woyaozhongchou"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-iconsd"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-liwu"></i></a></li>
-                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jingdongbaitiao"></i></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-huafei"></i><span class="ser-txt">话费</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-943caidan_jipiao"></i><span class="ser-txt">机票</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jiudian"></i><span class="ser-txt">酒店</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-94"></i><span class="ser-txt">游戏</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-webicon07"></i><span class="ser-txt">企业购</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jiayouqia"></i><span class="ser-txt">加油卡</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-dianyingpiao"></i><span class="ser-txt">电影票</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-huochepiao"></i><span class="ser-txt">火车票</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-woyaozhongchou"></i><span class="ser-txt">众筹</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-iconsd"></i><span class="ser-txt">理财</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-liwu"></i><span class="ser-txt">礼物卡</span></a></li>
+                    <li class="ser-li"><a href="#" class="ser-link"><i class="iconfont icon-jingdongbaitiao"></i><span class="ser-txt">白条</span></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+    <div class="floors">
+        <div class="miaosha">
+            <div class="miaosha_hd">
+                <div class="miaosha_hd_lk" href="#" target="_blank">
+                    <div class="miaosha_tit">京东秒杀</div>
+                    <div class="miaosha_subtit">FLASH DEALS</div>
+                    <div class="miaosha_ico"><i class="iconfont icon-lightningshandian-copy"></i></div>
+                    <div class="miaosha_desc">本场距离结束还剩</div>
+                    <div class="miaosha_cd">
+                        <div class="cd">
+                            <div class="cd_item cd_day">
+                            <span class="num fl">0</span>
+                            <span class="num fl">0</span>
+                            </div>
+                            <div class="cd_item cd_hour">
+                                <span class="num fl">0</span>
+                                <span class="num fl">0</span>
+                            </div>
+                            <div class="cd_item cd_minute">
+                                <span class="num fl">0</span>
+                                <span class="num fl">0</span>
+                            </div>
+                            <div class="cd_item cd_second">
+                                <span class="num fl">0</span>
+                                <span class="num fl">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="miaosha_bd">
+                <div class="miaosha_list">
+                    <a class="miaosha_control miaosha_list_prev" id="miaosha_prev">&lt;</a>
+                    <div id="miaosha_items" style="left: 0;">
+                    <div class="miaosha_item">
+                        <a class="miaosha_item_lk">
+                        <div class="miaosha_pic miaosha_pic1">
+                            <img src="http://img11.360buyimg.com/mobilecms/s140x140_jfs/t24307/198/2419966590/172266/336bf92d/5b7e484fN5bbeb55e.jpg!q90.webp" title="" alt="秒杀" />
+                        </div>
+                            <p class="miaosha_pic_desc">ThinkPad 联想 锐E580（19CD）15.6英寸轻薄商务游戏笔记本电脑 I5-8250u 升级：8G内存128G+500G硬盘 FHD</p>
+                            <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>5355.00</span>
+                                </span>
+                                <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>6299.00</span>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img13.360buyimg.com/mobilecms/s140x140_jfs/t25294/16/77947431/271014/35532f5a/5b6409bdNaf74472c.jpg!q90.webp" title="" alt="秒杀" />
+                        </div>
+                                <p class="miaosha_pic_desc">【厂家直销 品质保证】【爆款直降 仅售30元免邮】防水女包牛津布百搭小背包双肩包潮款迷你胸包 2077黑色</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>30.00</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>99.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img11.360buyimg.com/mobilecms/s140x140_jfs/t17392/280/2573445295/285750/19e851c6/5afd597bN6a7a8bb7.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">伊利 谷粒多红谷牛奶饮品250ml*12盒/礼盒装（红豆+红米+花生 早餐奶）</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>23.40</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>36.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="https://img10.360buyimg.com/mobilecms/s140x140_jfs/t24064/203/1623083606/124872/ba16be6/5b6433f4Nd073bcae.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">LUTIAN 高压洗车机 汽车用品家用高压清洗机水枪 220V洗车神器 全自动洗车器 自助刷车水泵 金鹰</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>259.00</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>299.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img12.360buyimg.com/mobilecms/s140x140_jfs/t24463/50/2414400061/84207/39112278/5b7e765aN4218624e.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">世纪奥桥（ShijiAoqiao） 绿植盆栽绿萝发财树室内花卉盆栽花客厅办公室盆栽水培植物 绿萝90#+自动浇水花盆</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>9.80</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>25.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img12.360buyimg.com/mobilecms/s140x140_jfs/t20080/116/2127966512/168934/cdcab763/5b6e8df9N2d88960d.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">领奥 迷你折叠电动车 成人电动滑板车锂电池代驾电瓶车自行车便携代步车 前后避震8.8ah升级款+续航30-35km</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>1280.00</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>3280.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img11.360buyimg.com/mobilecms/s140x140_jfs/t26761/130/63376764/153411/d77f544c/5b8363bcN891c82b9.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">【限量领券享8折】蓝月亮 洗衣液机洗14斤套装3kg+2kg*1+1kg*2</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>99.00</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>141.70</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="miaosha_item">
+                            <a class="miaosha_item_lk">
+                                <div class="miaosha_pic miaosha_pic1">
+                                    <img src="http://img13.360buyimg.com/mobilecms/s140x140_jfs/t7453/310/3241031231/181625/147c6317/5b7a5f85N7c701624.jpg!q90.webp" title="" alt="秒杀" />
+                                </div>
+                                <p class="miaosha_pic_desc">COACH 蔻驰 奢侈品  女士印花贝壳包手提单肩斜挎包 小号 咖色黑边F27583【在途】</p>
+                                <div class="miaosha_price">
+                                <span class="miaosha_price_new">
+                                    <i>¥</i>
+                                    <span>798.00</span>
+                                </span>
+                                    <span class="miaosha_price_origin">
+                                    <i>¥</i>
+                                    <span>1515.00</span>
+                                </span>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+                    <a class="miaosha_control miaosha_list_next" id="miaosha_next">&gt;</a>
+                </div>
+                <div class="miaosha_right">
+                    <div class="miaosha_right_inner">
+                    <div id="miaosha_right_list" style="left:0px;">
+                        <img src="images/miaosha/miaosha1.jpg"/>
+                        <img src="images/miaosha/miaosha2.jpg"/>
+                    </div>
+                    <div id="miaosha_buttons">
+                        <span index="1" class="on"></span>
+                        <span index="2"></span>
+                    </div>
+                        <a id="miaosha_right_prev" class="miaosha_arrow">&lt;</a>
+                        <a id="miaosha_right_next" class="miaosha_arrow">&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="corechn1">
+            <div class="corechn1_left corechn1_inner corechn1_mar">
+                <div class="corechn1_hd">
+                    <a class="corechn1_hd_lk">
+                        <h3 class="corechn1_tit">排行榜</h3>
+                        <i class="corechn1_hd_arrow"></i>
+                        <span class="corechn1_hd_subtit">专属你的购物指南</span>
+                    </a>
+                </div>
+                <div class="corechn1_bd">
+                    <div class="corechn1_top tab">
+                        <div class="tab_head" id="tab_head">
+                            <div index="1" class="tab_head_item tab_head_active">
+                                <a class="tab_head_lk">手机通讯</a>
+                            </div>
+                            <div index="2" class="tab_head_item">
+                                <a class="tab_head_lk">饮料冲剂</a>
+                            </div>
+                            <div index="3" class="tab_head_item"><a class="tab_head_lk">厨房小电</a>
+                            </div>
+                            <div index="4" class="tab_head_item">
+                                <a class="tab_head_lk">个护健康</a>
+                            </div>
+                            <div index="5" class="tab_head_item">
+                                <a class="tab_head_lk">面部护肤</a>
+                            </div>
+                        </div>
+                        <div class="tab_body">
+                            <div id="tab_body_item0" class="tab_body_item" style="display: block;">
+                                <div class="tab_body_list" style="left: 0;" id="tab_body_list">
+                                    <div class="tab_list_active tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t23740/30/1199308726/180940/f29e01d1/5b559a61N06565e55.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num0">1</span>
+                                                <span class="tab_list_name">【薄荷金耳机套装】一加手机6 8GB+256GB 墨岩黑 全面屏双摄游戏手机 全网通4G 双卡双待</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t21160/52/104309289/211615/f4e9fd04/5afbe088Na39708f8.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num1">2</span>
+                                            <span class="tab_list_name">小米6X 全网通 4GB+64GB 樱花粉 移动联通电信4G手机 双卡双待 智能手机 拍照手机</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img20.360buyimg.com/mobilecms/s80x80_jfs/t10675/253/1344769770/66891/92d54ca4/59df2e7fN86c99a27.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num2">3</span>
+                                                <span class="tab_list_name">【分期用】Apple iPhone X (A1865) 64GB 深空灰色 移动联通电信4G手机</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tab_list_next tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t21889/227/2697787143/113707/57d9da77/5b60186cNa7796bf9.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">4</span>
+                                                <span class="tab_list_name">【大礼包+碎屏套装】荣耀Note10 全网通6G+128G幻夜黑 移动联通电信4G全面屏游戏手机 双卡双待</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t21814/115/2122440427/268134/36d2b146/5b48c166Ne1bf85fe.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num">5</span>
+                                            <span class="tab_list_name">锤子（smartisan）坚果 3 4G+32GB 2D炫光酒红色（限量版） 全网通 移动联通电信4G手机 双卡双待</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t16795/168/1489555009/148413/135b5703/5acb160cNdd4cdbd6.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">6</span>
+                                                <span class="tab_list_name">【分期用】华为 HUAWEI P20 Pro 全面屏徕卡三摄 6GB +128GB 亮黑色 全网通版 移动联通电信4G手机 双卡双待</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab_body_item1" class="tab_body_item" style="display: none">
+                                <div class="tab_body_list" style="left: 0;">
+                                    <div class="tab_list_active tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t4024/27/1710044712/118941/948bccf6/58959815Nb71fc33b.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num0">1</span>
+                                                <span class="tab_list_name">伊利 安慕希希腊风味常温酸奶原味205g*12盒/礼盒装</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img13.360buyimg.com/mobilecms/s80x80_jfs/t23287/121/2343021921/358235/badee0d8/5b7d30e2Naa17c93f.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num1">2</span>
+                                            <span class="tab_list_name">王老吉 凉茶 茶叶饮料 绿盒装 250ml*24盒 整箱水饮 中华老字号</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t16165/38/2604092253/293495/4eb0d033/5abb733cN42ffcca3.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num2">3</span>
+                                                <span class="tab_list_name">怡宝 饮用水 纯净水555ml*24瓶 整箱装</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tab_list_next tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t11278/30/392755639/112423/3313880b/59eefa1fNa84f0726.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">4</span>
+                                                <span class="tab_list_name">统一 阿萨姆奶茶 原味奶茶 500ml*15瓶 整箱 精选喜马拉雅山麓红茶</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img30.360buyimg.com/mobilecms/s80x80_jfs/t15991/134/688795933/142974/111724d5/5a39e852Nc5e45b49.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num">5</span>
+                                            <span class="tab_list_name">伊利 安慕希希腊风味酸奶草莓味205g×12盒</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t15184/9/2553821012/367690/97a518dc/5aa9d31aN2d595277.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">6</span>
+                                                <span class="tab_list_name">延中 盐汽水 饮料 600ml*20瓶 整箱</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab_body_item2" class="tab_body_item" style="display: none;">
+                                <div class="tab_body_list" style="left: 0;">
+                                    <div class="tab_list_active tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t21139/341/685989075/324894/18908fe5/5b16397fN1d000e4f.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num0">1</span>
+                                                <span class="tab_list_name">立客（LIKE） LK-S2011电水壶不锈钢电热水壶烧水壶2.0升</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t25927/51/556028532/253885/cc9f8d43/5b73e0ddN7e543200.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num1">2</span>
+                                            <span class="tab_list_name">美的（Midea）电磁炉 匀火188mm聚能大线圈盘 黑晶触控面板 十档火力 C21-WT2118（标配欧式汤锅+精铁炒锅）</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t23665/184/2120608575/221060/7850ef0/5b7386d0N08fe9963.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num2">3</span>
+                                                <span class="tab_list_name">美的（Midea）电饼铛家用双面加热悬浮烤盘微电脑一键菜单煎烤机WJCN30D</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tab_list_next tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t24238/253/1262479322/247779/d85fe3f0/5b581824N1fbb7a9f.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">4</span>
+                                                <span class="tab_list_name">小熊（Bear）电煮锅多功能学生宿舍迷你电锅煮面电蒸锅小电火锅微电脑版DRG-C12T1</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t25297/189/739952819/254479/aa69c006/5b7a715aNe8dbef9d.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num">5</span>
+                                            <span class="tab_list_name">小熊（Bear）养生壶 迷你全自动玻璃加厚 电热水壶花茶壶煮茶器 办公室多功能 YSH-A08H1 0.8L</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t25696/320/967381068/252240/e636852e/5b83540cNd514a1fd.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">6</span>
+                                                <span class="tab_list_name">竹水溪 养生壶中药壶药罐分体式全自动煎药机熬药电砂锅中药锅陶瓷煎药壶电药壶煎药器药煲 3L药壶+底座</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab_body_item3" class="tab_body_item" style="display: none;">
+                                <div class="tab_body_list" style="left: 0;">
+                                    <div class="tab_list_active tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t19864/128/799616955/76290/72620166/5b0b9617Nb5273126.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num0">1</span>
+                                                <span class="tab_list_name">飞科(FLYCO)FS7806鼻毛修剪器 电动鼻毛器 修鼻毛机</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t24943/303/179465023/142919/9b0d64a0/5b687d55N0617dd34.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num1">2</span>
+                                            <span class="tab_list_name">飞利浦（PHILIPS）男士电动剃须刀便携式剃胡刀胡须刀刮胡刀PQ182/16</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t15820/94/725483528/106009/db5ea66f/5a3a2875N8ae03b6c.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num2">3</span>
+                                                <span class="tab_list_name">【京东包邮 充电款】Meilen电子秤称重人体秤精准电子称家用计体重秤 USB充电版黑色</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tab_list_next tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t24835/208/852696330/112081/3eead4ae/5b7e1ed8N48c66732.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">4</span>
+                                                <span class="tab_list_name">飞科(FLYCO)专业电动理发器成人儿童电推剪 剃头电推子 FC5806</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t5713/340/881996783/272352/d8602054/59224b61N5aca6eb0.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num">5</span>
+                                            <span class="tab_list_name">飞利浦（PHILIPS） 电动剃须刀 男士刮胡刀胡须刀txd电须刀双刀头须刀 PQ190/16 深空蓝</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t23296/299/2404169204/111777/28eae49e/5b7e644fN9c68b511.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">6</span>
+                                                <span class="tab_list_name">飞科(FLYCO)电吹风机家用FH6257吹风筒可折叠 1200W</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab_body_item4" class="tab_body_item" style="display: none;">
+                                <div class="tab_body_list" style="left: 0;">
+                                    <div class="tab_list_active tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img14.360buyimg.com/mobilecms/s80x80_jfs/t19600/175/873871443/343744/651fd0be/5ab0e235N7a53a031.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num0">1</span>
+                                                <span class="tab_list_name">玉兰油OLAY护肤套装多效修护礼盒化妆品套装3件套（面霜50g+醒肤水100ml+细滑洁面100g）补水 补湿</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t25963/41/529046307/45148/8155c99f/5b72909cN71953ba5.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num1">2</span>
+                                            <span class="tab_list_name">资生堂姬芮(Za）净颜两用卸妆油 100ml(轻松卸妆 温和去黑头 清爽干净可沾水用)</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img12.360buyimg.com/mobilecms/s80x80_jfs/t23860/359/2393492731/176326/28827494/5b7e7ba8Nbbd236d3.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num2">3</span>
+                                                <span class="tab_list_name">【第二件1元】芦荟胶祛痘芦荟膏去痘印祛痘膏抗痘晒后修复面膜套装男士女士化妆护肤品补水保湿润肤素颜霜</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tab_list_next tab_list">
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img10.360buyimg.com/mobilecms/s80x80_jfs/t23314/357/2153277655/161935/9676978e/5b768c48N0c7b0e79.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">4</span>
+                                                <span class="tab_list_name">SK-II PITERA“神仙水”防晒修护套装（神仙水230ml+小灯泡30ml+防晒修护霜50g）（面部精华液 补水保湿 ）</span>
+                                            </a>
+                                        </div>
+                                        <div class="tab_list_item"> <a class="tab_list_lk">
+                                            <div class="tab_list_pic">
+                                                <img class="tab_list_img" src="http://img11.360buyimg.com/mobilecms/s80x80_jfs/t24385/254/2576181665/164452/a23662d7/5b865409N60253814.jpg!q90.webp" />
+                                            </div>
+                                            <span class="tab_list_num">5</span>
+                                            <span class="tab_list_name">曼秀雷敦 天然植物润唇膏－香橙4g（保湿滋润 清新果味 柔软饱满）新老包装随机发货</span>
+                                        </a>
+                                        </div>
+                                        <div class="tab_list_item">
+                                            <a class="tab_list_lk">
+                                                <div class="tab_list_pic">
+                                                    <img class="tab_list_img" src="http://img14.360buyimg.com/mobilecms/s80x80_jfs/t7882/214/1258729423/305838/15c4609/599bdc84Nda60408b.jpg!q90.webp" />
+                                                </div>
+                                                <span class="tab_list_num">6</span>
+                                                <span class="tab_list_name">MG美即面膜 清莹无忧补水祛痘补水保湿面膜套装20片（控油清洁  男女士面膜贴）</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab_body_buttons" id="tab_btns">
+                                <span tab_index="1" class="tab_buttons tab_on"></span>
+                                <span tab_index="2" class="tab_buttons"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="corechn1_mid corechn1_inner corechn1_mar">
+                <div class="corechn1_hd">
+                    <a class="corechn1_hd_lk">
+                        <h3 class="corechn1_tit">会买专辑</h3>
+                        <i class="corechn1_hd_arrow"></i>
+                        <span class="corechn1_hd_subtit">甄选优质好物</span>
+                    </a>
+                </div>
+                <div class="corechn1_bd"></div>
+            </div>
+            <div class="corechn1_right corechn1_inner">
+                <div class="corechn1_hd">
+                    <a class="corechn1_hd_lk">
+                        <h3 class="corechn1_tit">领券中心</h3>
+                        <i class="corechn1_hd_arrow"></i>
+                        <span class="corechn1_hd_subtit">前往领券中心</span>
+                    </a>
+                </div>
+                <div class="corechn1_bd"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="jingDongDemo-fs-middle-slideShow.js"></script>
+<script src="jingDongDemo-miaosha.js"></script>
+<script src="jingDongDemo-miaoshaList.js"></script>
+<script src="jingDongDemo-miaosha-right.js"></script>
+<script src="jingDongDemo-corechn1-left.js"></script>
 </body>
 </html>
