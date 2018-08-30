@@ -1026,13 +1026,13 @@ a:hover,#header ul li a:hover{
 .corechn1_inner{
     float: left;
     display: inline;
-    width: 370px;
+    width: 386px;
     height: 375px;
     margin-bottom: 25px;
     background: #fff;
 }
 .corechn1_mar{
-    margin-right: 35px;
+    margin-right: 10px;
 }
 .corechn1_hd{
     height: 50px;
@@ -1053,12 +1053,11 @@ a:hover,#header ul li a:hover{
 }
 .corechn1_hd_arrow{
     float: left;
-    top: 6px;
-    background-position: 0px 0px;
     width: 23px;
     height: 23px;
+    margin-top: 6px;
+    margin-left: 5px;
     line-height: 23px;
-    left: 4px;
     background-image: url("images/corechn1/corechn1.jpg");
 }
 .corechn1_hd_subtit{
@@ -1067,7 +1066,7 @@ a:hover,#header ul li a:hover{
     height: 20px;
     font-size: 14px;
     line-height: 20px;
-    margin: 7px 0 0 10px;
+    margin: 7px 0 0 5px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -1186,21 +1185,369 @@ a:hover,#header ul li a:hover{
 }
 .tab_body_buttons{
     position: absolute;
-    bottom: 0;
-    left: 148px;
+    bottom: -24px;
+    left: 45%;
     width: 34px;
     height: 16px;
 }
 .tab_buttons{
     display: block;
     float: left;
-    width: 8px;
-    height: 8px;
-    margin-right: 2px;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
     border-radius: 50%;
     border: solid 1px #666;
     z-index: 999;
 }
 .tab_on{
     background: red;
+}
+/* 核心区中部日报样式 */
+.daily_inner,.corechn2_inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.daily_control,.corechn2_control{
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 40px;
+    color: #f1f1f1;
+    background: rgba(0,0,0,.15);
+    font-size: 20px;
+    line-height: 40px;
+    z-index: 2;
+    cursor: pointer;
+}
+#daily_prev,#corechn2_prev{
+    left: 0;
+}
+#daily_next,#corechn2_next{
+    right: 0;
+}
+#daily_buttons,#corechn2_buttons{
+    position: absolute;
+    bottom: -24px;
+    left: 45%;
+    height: 16px;
+    z-index: 2;
+}
+.daily_button,.corechn2_button{
+    position: relative;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 1px;
+    border: solid 1px #666;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.daily_on,.corechn2_on{
+    background: #eb3436;
+}
+#daily_box,#corechn2_box{
+    position: relative;
+    width: 350px;
+    height: 295px;
+    margin: 0 18px 0 18px;
+    overflow: hidden;
+}
+#daily_box_inner,#corechn2_list{
+    position: absolute;
+    width: 1750px;
+    height: 295px;
+}
+.daily_lk{
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 295px;
+    cursor: pointer;
+}
+.daily_image{
+    width: 370px;
+    height: 105px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.daily_image img{
+    width: 100%;
+    height: 100%;
+}
+.daily_cover{
+    width: 100%;
+    height: 175px;
+}
+.daily_list{
+    width: 350px;
+    height: 87px;
+}
+.daily_item{
+    float: left;
+    width: 87px;
+    height: 87px;
+    margin-right: 29px;
+}
+.daily_item img{
+    width: 100%;
+    height: 100%;
+}
+.daily_title{
+    height: 35px;
+    text-align: center;
+    font-size: 16px;
+    color: #222;
+    margin-top: 13px;
+}
+.daily_title_txt{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.daily_subtit{
+    width: 350px;
+    height: 36px;
+    font-size: 12px;
+    text-align: left;
+    line-height: 18px;
+    margin: 0 auto 0;
+    color: #666;
+    overflow: hidden;
+}
+/* 核心区右侧礼券样式 */
+.lottery_inner{
+    width: 340px;
+    height: 295px;
+    position: relative;
+    padding: 0 23px;
+}
+#lottery_box{
+    position: relative;
+    width: 340px;
+    height: 295px;
+    overflow: hidden;
+}
+#lottery_list{
+    position: absolute;
+    width: 680px;
+    height: 295px;
+}
+.lottery_list_inner{
+    float: left;
+    width: 340px;
+    height: 295px;
+}
+.lottery_lk{
+    display: block;
+    position: relative;
+    width: 340px;
+    height: 98px;
+    overflow: hidden;
+    border-radius: 3%;
+    background: #f6f6f6;
+}
+.lottery_mid{
+    background: #eeefed;
+}
+.lottery_left{
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 10px 0 0 10px;
+    border: solid 1px #fff;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+}
+.lottery_left img{
+    width: 100%;
+    height: 100%;
+}
+.lottery_middle{
+    padding-top: 10px;
+    margin: 0 10px 0 100px;
+}
+.lottery_price{
+    font-size: 14px;
+    color: #e33333;
+}
+.lottery_price i{
+    font-size: 16px;
+    margin-right: 3px;
+    font-family: Arial;
+    font-weight: 400;
+}
+.lottery_price span{
+    font-size: 34px;
+    font-family: Impact;
+}
+.lottery_desc{
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #b1b3b0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.lottery_name{
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #767b77;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.lottery_right{
+    position: absolute;
+    left: 320px;
+    top: 10px;
+    width: 12px;
+    font-size: 12px;
+    color: #333;
+    line-height: 13px;
+    vertical-align: middle;
+}
+#lottery_buttons{
+    position: absolute;
+    left: 154px;
+    bottom: -24px;
+    width: 40px;
+    height: 16px;
+}
+.lottery_buttons{
+    position: relative;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: solid 1px #666;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.lottery_on{
+    background: #eb3436;
+    border: solid 1px #fdd9dd;
+}
+/* corechn2 */
+.corechn2_image{
+    position: relative;
+    width: 100%;
+    height: 208px;
+    overflow: hidden;
+}
+.corechn2_image img{
+    width: 100%;
+    height: 100%;
+}
+.corechn2_tit{
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    color: #333;
+    overflow: hidden;
+    -ms-text-overflow:ellipsis;
+    text-overflow: ellipsis;
+}
+.corechn2_desc{
+    height: 36px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+}
+.corechn2_goodrec{
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    margin: 0 18px 0 18px;
+}
+.choosen_list{
+    margin: 0 25px 0 25px;
+}
+.choosen_item{
+    float: left;
+    width: 150px;
+    height: 150px;
+    list-style: none;
+    text-align: center;
+}
+.choosen_item_lk{
+    display: block;
+}
+.choosen_item_image{
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+}
+.choosen_item_name{
+    margin-top: 5px;
+    padding: 0 8px;
+    height: 16px;
+    color: #3e8c96;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.choosen_item_desc{
+    padding: 0 8px;
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #666;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.choosen_item_name:hover{
+    color: #eb3333;
+}
+.choosen_item_desc:hover{
+    color: #eb3333;
+}
+/* corechn2 右部样式 */
+.masshop{
+    position: relative;
+    padding: 0 18px;
+    width: 350px;
+    height: 325px;
+}
+.masshop_top{
+    width: 350px;
+    height: 200px;
+}
+.masshop_top_lk{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.masshop_top_lk img{
+    width: 100%;
+    height: 100%;
+}
+.masshop_bottom{
+    margin-top: 2px;
+    width: 350px;
+    height: 90px;
+}
+.masshop_bottom_item{
+    float: left;
+    margin: 15px 26px 0 0;
+    width: 90px;
+    height: 90px;
+}
+.masshop_bottom_lk{
+    display: block;
+    width: 90px;
+    height: 90px;
+}
+.masshop_bottom_lk img{
+    width: 100%;
+    height: 100%;
 }
